@@ -1,14 +1,18 @@
 const main = async () => {
     const domainContractFactory = await hre.ethers.getContractFactory('Domains');
-    // We pass in "ninja" to the constructor when deploying
     const domainContract = await domainContractFactory.deploy("yadav");
     await domainContract.deployed();
 
     console.log("Contract deployed to:", domainContract.address);
 
-    // We're passing in a second variable - value. This is the moneyyyyyyyyyy
+    // CHANGE THIS DOMAIN TO SOMETHING ELSE! I don't want to see OpenSea full of bananas lol
     let txn = await domainContract.register("neeraj", { value: hre.ethers.utils.parseEther('0.1') });
     await txn.wait();
+    console.log("Minted domain neeraj.yadav");
+
+    txn = await domainContract.setRecord("neeraj", "Am I a neeraj or a yadav??");
+    await txn.wait();
+    console.log("Set record for neeraj.yadav");
 
     const address = await domainContract.getAddress("neeraj");
     console.log("Owner of domain neeraj:", address);
