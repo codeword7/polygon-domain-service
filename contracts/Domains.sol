@@ -19,7 +19,7 @@ contract Domains is ERC721URIStorage {
 
     constructor(string memory _tld)
         payable
-        ERC721("Yadav Name Service", "YDV")
+        ERC721("Panda Name Service", "PND")
     {
         tld = _tld;
         console.log("%s name service deployed", _tld);

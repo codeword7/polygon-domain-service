@@ -8,11 +8,11 @@ const main = async () => {
     // CHANGE THIS DOMAIN TO SOMETHING ELSE! I don't want to see OpenSea full of bananas lol
     let txn = await domainContract.register("neeraj", { value: hre.ethers.utils.parseEther('0.1') });
     await txn.wait();
-    console.log("Minted domain neeraj.yadav");
+    console.log("Minted domain neeraj.panda");
 
-    txn = await domainContract.setRecord("neeraj", "Am I a neeraj or a yadav??");
+    txn = await domainContract.setRecord("neeraj", "Am I a neeraj or a panda??");
     await txn.wait();
-    console.log("Set record for neeraj.yadav");
+    console.log("Set record for neeraj.panda");
 
     const address = await domainContract.getAddress("neeraj");
     console.log("Owner of domain neeraj:", address);
